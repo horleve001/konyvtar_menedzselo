@@ -40,6 +40,10 @@ void options(int option, int *p, Konyv konyv[]){
     switch(option){
         case 1:
             system("CLS");
+            if(*p == 100){
+                std::cout << "A konyvtar tele van!" << std::endl;
+                break;
+            }
             konyv_felvet(p, konyv);
             break;
         case 2:
