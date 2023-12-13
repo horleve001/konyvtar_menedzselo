@@ -324,6 +324,7 @@ void konyv_szerkesztes(int *p, Konyv konyv[]){
     else{
         std::string cim, szerzo;
         int kiadas_eve, kod;
+        bool check = false;
         std::cout << "Mi alapjan szeretne szerkeszteni?" << std::endl;
         std::cout << "1. Cim" << std::endl;
         std::cout << "2. Szerzo" << std::endl;
@@ -339,11 +340,13 @@ void konyv_szerkesztes(int *p, Konyv konyv[]){
                 for (int i = 0; i < *p; i++)
                 {
                     if(cim == konyv[i].get_cim()){
+                        check = true;
                         adat_szerkeszt(p, i, konyv);
+                        break;
                     }
-                    else{
-                        std::cout << "Nincs ilyen konyv!" << std::endl;
-                    }
+                }
+                if(check == false){
+                    std::cout << "Nincs ilyen konyv!" << std::endl;
                 }
                 break;
             case 2:
@@ -353,11 +356,13 @@ void konyv_szerkesztes(int *p, Konyv konyv[]){
                 for (int i = 0; i < *p; i++)
                 {
                     if(szerzo == konyv[i].get_szerzo()){
+                        check = true;
                         adat_szerkeszt(p, i, konyv);
+                        break;
                     }
-                    else{
-                        std::cout << "Nincs ilyen konyv!" << std::endl;
-                    }
+                }
+                if(check == false){
+                    std::cout << "Nincs ilyen konyv!" << std::endl;
                 }
                 break;
             case 3:
@@ -366,22 +371,24 @@ void konyv_szerkesztes(int *p, Konyv konyv[]){
                 for (int i = 0; i < *p; i++)
                 {
                     if(kiadas_eve == konyv[i].get_kiadas_eve()){
+                        check = true;
                         adat_szerkeszt(p, i, konyv);
+                        break;
                     }
-                    else{
-                        std::cout << "Nincs ilyen konyv!" << std::endl;
-                    }
+                }
+                if(check == false){
+                    std::cout << "Nincs ilyen konyv!" << std::endl;
                 }
                 break;
             case 4:
                 std::cout << "Kerem adja meg a konyv kodjat: ";
-                bool check = false;
                 kod = szam_check();
                 for (int i = 0; i < *p; i++)
                 {
                     if(kod == konyv[i].get_kod()){
                         check = true;
                         adat_szerkeszt(p, i, konyv);
+                        break;
                     }
                 }
                 if(check == false){
