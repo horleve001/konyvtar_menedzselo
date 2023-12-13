@@ -375,15 +375,17 @@ void konyv_szerkesztes(int *p, Konyv konyv[]){
                 break;
             case 4:
                 std::cout << "Kerem adja meg a konyv kodjat: ";
+                bool check = false;
                 kod = szam_check();
                 for (int i = 0; i < *p; i++)
                 {
                     if(kod == konyv[i].get_kod()){
+                        check = true;
                         adat_szerkeszt(p, i, konyv);
                     }
-                    else{
-                        std::cout << "Nincs ilyen konyv!" << std::endl;
-                    }
+                }
+                if(check == false){
+                    std::cout << "Nincs ilyen konyv!" << std::endl;
                 }
                 break;
             default:
